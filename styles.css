@@ -1125,6 +1125,34 @@ h4 {
   background: var(--accent);
 }
 
+.memory-alert {
+  display: grid;
+  gap: 8px;
+  margin-top: 22px;
+  padding: 18px 20px;
+  color: var(--accent-dark);
+  background: linear-gradient(135deg, #fff8f6, #f8efed);
+  border: 1px solid rgba(185, 153, 153, 0.68);
+  border-radius: 8px;
+}
+
+.memory-alert strong,
+.memory-alert span {
+  display: block;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.memory-alert strong {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.memory-alert span {
+  color: var(--ink);
+  font-size: 14px;
+}
+
 .plan-section {
   width: 100%;
   padding-inline: max(20px, calc((100% - var(--section-width)) / 2));
