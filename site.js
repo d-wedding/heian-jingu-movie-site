@@ -40,7 +40,7 @@
   };
 
   document
-    .querySelectorAll(".hero-simple h1 span, .instagram-copy h2, .concept h2 span, .section-label h2, .option-title h3, .primary-cta h2, .section-cta h3, .footer-logo")
+    .querySelectorAll(".hero-simple h1 span, .instagram-copy h2, .concept h2 span, .section-label h2, .primary-cta h2, .section-cta h3, .footer-logo")
     .forEach(splitText);
 
   const revealTargets = document.querySelectorAll(

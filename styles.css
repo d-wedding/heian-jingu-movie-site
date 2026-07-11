@@ -18,6 +18,7 @@
   --section-width: 1120px;
   --wide-width: 1240px;
   --image-radius: 4px;
+  --header-offset: 92px;
 }
 
 * {
@@ -27,13 +28,14 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 94px;
+  scroll-padding-top: calc(var(--header-offset) + 18px);
   width: 100%;
   overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  padding-top: var(--header-offset);
   width: 100%;
   min-width: 0;
   overflow-x: hidden;
@@ -86,8 +88,10 @@ li {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 20;
   display: flex;
   align-items: center;
@@ -121,17 +125,25 @@ li {
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
   gap: 6px 22px;
+  overflow-x: auto;
   color: var(--muted);
   font-family: var(--font-en);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
+  scrollbar-width: none;
+  white-space: nowrap;
+}
+
+.nav::-webkit-scrollbar {
+  display: none;
 }
 
 .nav a {
+  flex: 0 0 auto;
   padding-block: 7px;
   border-bottom: 1px solid transparent;
 }
@@ -793,6 +805,11 @@ h4 {
   margin-bottom: 28px;
 }
 
+.option-title h3 .keep-line {
+  display: inline-block;
+}
+
+
 .option-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -858,6 +875,16 @@ h4 {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 8px;
+}
+
+.memory-notice {
+  width: min(100% - 48px, var(--section-width));
+  margin-inline: auto;
+}
+
+.memory-notice h3 {
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.55;
 }
 
 .detail-panel::before,
@@ -1054,7 +1081,8 @@ h4 {
   grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
   gap: 34px;
   align-items: center;
-  margin-top: 28px;
+  width: min(100% - 48px, var(--section-width));
+  margin: 34px auto 0;
   padding: clamp(24px, 4vw, 44px);
   background: var(--soft);
   border: 1px solid var(--line);
@@ -1722,6 +1750,10 @@ h4 {
 }
 
 @media (max-width: 640px) {
+  :root {
+    --header-offset: 126px;
+  }
+
   body {
     font-size: 15px;
     line-height: 1.82;
@@ -2104,5 +2136,27 @@ h4 {
   .discount-rule div {
     min-height: 92px;
     border-radius: 10px;
+  }
+}
+
+
+/* applied venue revision */
+.memory-section,
+.memory-notice {
+  scroll-margin-top: calc(var(--header-offset) + 24px);
+}
+
+@media (max-width: 920px) {
+  .memory-section,
+  .memory-notice {
+    width: min(100% - 36px, 680px);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .memory-section,
+  .memory-notice {
+    width: min(100% - 28px, 520px);
   }
 }
