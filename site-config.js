@@ -18,7 +18,7 @@ window.SITE_CONFIG = {
     history: "./assets/history.jpg",
     prewedding: "./assets/prewedding.jpg",
     location: "./assets/location.jpg",
-    opm: "./assets/opm.jpg"
+    opm: "./assets/opm-20260916.jpg"
   },
   fonts: {
     japanese: '"Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Noto Serif JP", serif',
